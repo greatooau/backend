@@ -9,7 +9,7 @@ const getGoals = asyncHandler(async (req, res) => {
     const goals = await Goal.find();
 
     res.status(200).json(goals);
-})
+});
 
 // @desc    ADD goals
 // @route   ADD /api/goals
@@ -52,7 +52,7 @@ const deleteGoal = asyncHandler(async (req,res) => {
     const goal = await Goal.findById(req.params.id);
 
     if(!goal) {
-        res.statusCode(400);
+        res.status(400);
         throw new Error('Goal not found');
     }
 
